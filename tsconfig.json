@@ -16,6 +16,20 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "milos": [
+        "dist/milos"
+      ],
+      "milos/*": [
+        "dist/milos/*"
+      ],
+      "@app/shared/*": [
+        "./src/app/shared/*"
+      ],
+      "@app/demos/*": [
+        "./src/app/demos/*"
+      ]
+    }
   }
 }

@@ -29,6 +29,11 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./projects/milos/src/theme"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -127,6 +132,41 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "milos-lib": {
+      "root": "projects/milos",
+      "sourceRoot": "projects/milos/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/milos/tsconfig.lib.json",
+            "project": "projects/milos/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/milos/src/test.ts",
+            "tsConfig": "projects/milos/tsconfig.spec.json",
+            "karmaConfig": "projects/milos/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/milos/tsconfig.lib.json",
+              "projects/milos/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]

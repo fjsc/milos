@@ -1,0 +1,28 @@
+.form-group {
+  display: table;
+  font-family: Sans-Serif;
+
+  label {
+    display: table-header-group;
+  }
+
+  input, select {
+    border: 1px solid #b5b5b5;
+    color: #0f1b27;
+    background-color: #fff;
+    font-family: Sans-Serif;
+    border: 1px solid #b5b5b5;
+    padding: 10px 17px 10px 15px;
+    border-radius: 4px;
+    vertical-align: bottom;
+    outline: 0;
+  }
+
+  input:focus, select:active {
+    border-color:#88c5ee;
+  }
+
+  input:focus + label {
+    color:#128bde;
+  }
+}
