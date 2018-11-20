@@ -18,18 +18,19 @@
       "dom"
     ],
     "paths": {
-      "milos": [
-        "dist/milos"
+      "egeo": [
+        "dist/egeo"
       ],
-      "milos/*": [
-        "dist/milos/*"
+      "egeo/*": [
+        "dist/egeo/*"
       ],
       "@app/shared/*": [
-        "./src/app/shared/*"
+        "./projects/egeo-web/src/app/shared/*"
       ],
       "@app/demos/*": [
-        "./src/app/demos/*"
-      ]
+        "./projects/egeo-web/src/app/demos/*"
+      ],
+      "@stratio/egeo": ["./projects/egeo/src/public_api.ts"],
     }
   }
 }
