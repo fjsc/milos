@@ -27,10 +27,9 @@
       "@app/shared/*": [
         "./projects/egeo-web/src/app/shared/*"
       ],
-      "@app/demos/*": [
-        "./projects/egeo-web/src/app/demos/*"
-      ],
+      "@app/demos/*": ["./projects/egeo-web/src/app/demos/*"],
       "@stratio/egeo": ["./projects/egeo/src/public_api.ts"],
+      "@stratio/egeo-elements": ["./projects/egeo/src/public_api.elements.ts"]
     }
   }
 }

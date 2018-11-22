@@ -22,7 +22,7 @@
 </div>
 <div class="list">
    <div *ngFor="let fontGroup of fontsList" class="group">
-      <span class="subtitle">{{categoryToString(fontGroup[0].category)}}</span>
+      <span class="subtitle">{{CATEGORY[fontGroup[0].category]}}</span>
       <div class="category">
          <div *ngFor="let font of fontGroup | stFilterList:searchBy:searchValue">
             <font-demo [font]="font" (copyFontName)="onCopyFontName($event)"></font-demo>

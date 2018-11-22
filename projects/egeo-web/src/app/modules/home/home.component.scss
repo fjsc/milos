@@ -4,7 +4,7 @@
    padding-bottom: 100px;
 
    .background {
-      width: 100vw;
+      width: 100%;
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -12,15 +12,21 @@
       background: linear-gradient(to right,rgba(142,45,226,0.95),rgba(74,0,224,0.95),rgba(35,13,201,0.95)), url(/assets/images/bg.png);
       background-size: cover;
       background-attachment: fixed;
+      position: relative;
+   }
+
+   .title-container {
+     position: absolute;
+     top: 50%;
+     margin-top: -140px;
    }
 
    h1 {
-      font-family: $egeo-nunito-sans-light;
+      font-family: $egeo-nunito-sans-semiBold;
       font-size: 53px;
       text-align: left;
       color: $neutral-00;
-      margin-top: 192px;
-      margin-bottom: 52px;
+      margin-bottom: 10px;
       font-weight: 100;
    }
 

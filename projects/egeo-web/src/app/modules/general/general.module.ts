@@ -12,6 +12,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 import { GeneralComponent } from './general';
 import { AboutComponent } from './about/about';
@@ -35,6 +36,7 @@ export const routes: Routes = [
    imports: [
       CommonModule,
       DemoMenuModule,
+      HttpClientModule,
       RouterModule.forChild(routes),
       MarkdownToHtmlModule
    ],

@@ -29,6 +29,21 @@
                 "glob": "**/*.*",
                 "input": "assets/fonts",
                 "output": "/assets/fonts"
+              },
+              {
+                "glob": "_stratio_fonticon.scss",
+                "input": "projects/egeo/src/theme/vendors/fonts",
+                "output": "/assets"
+              },
+              {
+                "glob": "_colors.scss",
+                "input": "projects/egeo/src/theme/constants",
+                "output": "/assets"
+              },
+              {
+                "glob": "CHANGELOG.md",
+                "input": "",
+                "output": "/assets"
               }
             ],
             "styles": [
@@ -39,14 +54,20 @@
                 "./projects/egeo/src/theme"
               ]
             },
-            "scripts": []
+            "scripts": [
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              }
+            ]
           },
           "configurations": {
             "production": {
-              "fileReplacements": [{
-                "replace": "projects/egeo-web/src/environments/environment.ts",
-                "with": "projects/egeo-web/src/environments/environment.prod.ts"
-              }],
+              "fileReplacements": [
+                {
+                  "replace": "projects/egeo-web/src/environments/environment.ts",
+                  "with": "projects/egeo-web/src/environments/environment.prod.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -56,11 +77,13 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [{
-                "type": "initial",
-                "maximumWarning": "2mb",
-                "maximumError": "5mb"
-              }]
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
@@ -167,6 +190,105 @@
             "tsConfig": [
               "projects/egeo/tsconfig.lib.json",
               "projects/egeo/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "egeo-elements": {
+      "root": "projects/egeo-elements/",
+      "sourceRoot": "projects/egeo-elements/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/egeo-elements",
+            "index": "projects/egeo-elements/src/index.html",
+            "main": "projects/egeo-elements/src/main.ts",
+            "polyfills": "projects/egeo-elements/src/polyfills.ts",
+            "tsConfig": "projects/egeo-elements/tsconfig.app.json",
+            "assets": [
+              "projects/egeo-elements/src/favicon.ico",
+              "projects/egeo-elements/src/assets"
+            ],
+            "styles": [
+              "projects/egeo-elements/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/egeo-elements/src/environments/environment.ts",
+                  "with": "projects/egeo-elements/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "egeo-elements:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "egeo-elements:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "egeo-elements:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/egeo-elements/src/test.ts",
+            "polyfills": "projects/egeo-elements/src/polyfills.ts",
+            "tsConfig": "projects/egeo-elements/tsconfig.spec.json",
+            "karmaConfig": "projects/egeo-elements/karma.conf.js",
+            "styles": [
+              "projects/egeo-elements/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/egeo-elements/src/favicon.ico",
+              "projects/egeo-elements/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/egeo-elements/tsconfig.app.json",
+              "projects/egeo-elements/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

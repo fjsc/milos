@@ -17,9 +17,10 @@ import { StDropdownMenuModule } from '../st-dropdown-menu/st-dropdown-menu.modul
 import { StHeaderComponent } from './st-header.component';
 import { StHeaderMenuOptionComponent } from './menu-option/menu-option';
 import { StHeaderMenuComponent } from './menu/menu';
+import { StModule } from './../decorators/require-decorators';
 
 
-@NgModule({
+@StModule({
    imports: [
       CommonModule,
       RouterModule,

@@ -28,6 +28,12 @@ export class FontsDemoComponent {
    public hasNotification = false;
    public opacity = 0;
 
+   public CATEGORY = [
+      'Font Family',
+      'Font Size',
+      'Line Height'
+   ]
+
    private animationInterval: number;
 
    constructor(private _cd: ChangeDetectorRef) { }
@@ -44,15 +50,6 @@ export class FontsDemoComponent {
    closeNotification(): void {
       this.stopAnimation(false);
       this.animate(false);
-   }
-
-   categoryToString(category: CATEGORY): string {
-      switch (category) {
-         case CATEGORY.FONT_FAMILY: return 'Font Family';
-         case CATEGORY.FONT_SIZE: return 'Font Size';
-         case CATEGORY.LINE_HEIGHT: return 'Line Height';
-         default: return '';
-      }
    }
 
    private animate(show: boolean): void {

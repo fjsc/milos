@@ -10,9 +10,12 @@
     SPDX-License-Identifier: Apache-2.0.
 
 -->
-<div class="content">
-   <demo-menu class="side-menu" [options]="menu"></demo-menu>
-   <div class="main-content">
-      <router-outlet></router-outlet>
-   </div>
+
+<div class="app-limit">
+  <div class="content">
+    <demo-menu class="side-menu" [options]="menu"></demo-menu>
+    <div class="main-content">
+        <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

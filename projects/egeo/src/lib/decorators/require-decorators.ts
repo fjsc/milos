@@ -8,9 +8,12 @@
  *
  * SPDX-License-Identifier: Apache-2.0.
  */
+
+import { NgModule } from '@angular/core';
 import * as ReflectMetadata from 'reflect-metadata';
 
 import { EgeoUtils } from '../utils/egeo-utils';
+import { environment } from '../../../environments/environment';
 
 const EGEO_METADATA = Symbol('EgeoLibraryMetadata');
 
@@ -22,6 +25,15 @@ export interface EgeoMetadata {
    requireCondition?: string;
    deprecated?: boolean;
    initialValue?: any;
+}
+
+export interface StModule {
+  declarations?: Array<any>;
+  exports?: Array<any>;
+  imports?: Array<any>;
+  providers?: Array<any>;
+  egeoElements?: Array<any>;
+  entryComponents?: Array<any>;
 }
 
 // tslint:disable:only-arrow-functions
@@ -66,6 +78,21 @@ export function StEgeo(params?: ''): any {
             checkRequired(target, this);
          };
       }
+   };
+}
+
+export function StModule(args: StModule): any {
+  if (environment.elements) {
+    args = {
+      ...args,
+      entryComponents: [...args.entryComponents, ...args.egeoElements]
+    };
+  } else {
+    delete args.entryComponents;
+  }
+  const ngModuleDecorator = NgModule(args);
+   return function (target: any, name: string): any {
+      ngModuleDecorator(target);
    };
 }
 

@@ -43,10 +43,8 @@ main {
 
 .app-limit {
    max-width: 78.125rem;
+   width: 100%;
    min-width: 48rem;
-   display: flex;
-   flex-wrap: nowrap;
-   flex-grow: 1;
 }
 
 .changelog {

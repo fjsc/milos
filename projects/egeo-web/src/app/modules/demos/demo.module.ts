@@ -8,30 +8,31 @@
  *
  * SPDX-License-Identifier: Apache-2.0.
  */
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DemoLayoutComponent } from './demo-layout/demo-layout.component';
-import { DemoFooterModule } from '@app/shared/footer/footer.module';
+import { StFooterModule } from '@stratio/egeo';
 import { DemoMenuModule } from '@app/shared/menu/menu.component.module';
 
-export const routes: Routes = [
+export const routes: Routes = [{
+    path: '', redirectTo: 'demo/alerts-demo'
+  },
   {
     path: '',
     component: DemoLayoutComponent,
-    children: [{
-      path: 'demo', loadChildren: './demo-loader.module#DemoLoaderModule'
-    }]
+    children: [
+      { path: 'demo', loadChildren: './demo-loader.module#DemoLoaderModule' }
+    ]
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    DemoFooterModule,
     DemoMenuModule,
+    StFooterModule,
     RouterModule.forChild(routes)
   ],
   declarations: [DemoLayoutComponent]

@@ -9,7 +9,7 @@
  * SPDX-License-Identifier: Apache-2.0.
  */
 
-import { Component, ElementRef, HostListener, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ElementRef, HostListener, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
 import { fromEvent, forkJoin } from 'rxjs';
 
@@ -19,7 +19,8 @@ import { filter } from 'rxjs/operators';
 @Component({
   selector: 'demo-header',
   templateUrl: 'header.component.html',
-  styleUrls: ['header.component.scss']
+  styleUrls: ['header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DemoHeaderComponent implements OnDestroy {
 

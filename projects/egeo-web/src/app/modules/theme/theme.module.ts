@@ -11,6 +11,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { StSearchModule, PipesModule } from '@stratio/egeo';
+import { HttpClientModule } from '@angular/common/http';
 
 import { DemoMenuModule } from '@app/shared/menu/menu.component.module';
 
@@ -26,7 +28,6 @@ import { ColorsService } from './colors/colors.service';
 
 import { FontDemoComponent } from './fonts/font/font';
 import { FontsDemoComponent } from './fonts/fonts';
-import { StSearchModule } from '@stratio/egeo';
 
 export const routes: Routes = [
    {
@@ -44,6 +45,8 @@ export const routes: Routes = [
    imports: [
       CommonModule,
       DemoMenuModule,
+      HttpClientModule,
+      PipesModule,
       StSearchModule,
       RouterModule.forChild(routes)
    ],
