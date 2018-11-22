@@ -10,7 +10,7 @@
  */
 
 'use strict';
-
+/*
 const path = require('path');
 
 const tsconfigPath = path.join(__dirname, 'tools/gulp/tsconfig.json');
@@ -30,3 +30,20 @@ require("tsconfig-paths").register({
 });
 
 require('./tools/gulp/gulpfile');
+*/
+
+const fs = require('fs-extra');
+const concat = require('concat');
+
+(async function build() {
+    const files = [
+        './dist/egeo-elements/runtime.js',
+        './dist/egeo-elements/polyfills.js',
+        './dist/egeo-elements/main.js',
+    ]
+    await fs.ensureDir('elements')
+    await concat(files, 'elements/egeo-elements.js');
+    // await fs.copyFile('./dist/angularElements/styles.css', 'elements/styles.css')
+    // await fs.copy('./dist/angularElements/assets/', 'elements/assets/' )
+
+})()

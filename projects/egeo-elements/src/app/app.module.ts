@@ -11,10 +11,11 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { StHeaderModule } from '@stratio/egeo';
 import { stElementsModules } from '@stratio/egeo-elements';
 
 import { AppComponent } from './app.component';
+
 
 @NgModule({
   declarations: [
@@ -22,8 +23,14 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    ...stElementsModules
+    StHeaderModule
   ],
-  bootstrap: [AppComponent]
+  providers: [ // Provide Service Here
+    {
+      provide: StHeaderModule,
+      useFactory: (<any>StHeaderModule).withElements()
+    }
+  ],
+  bootstrap: []
 })
 export class AppModule { }

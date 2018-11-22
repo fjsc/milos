@@ -9,9 +9,11 @@
  * SPDX-License-Identifier: Apache-2.0.
  */
 
+import { BrowserModule } from '@angular/platform-browser';
 import { StHeaderModule } from './lib/st-header/st-header.module';
 
 
 export const stElementsModules: Array<any> = [
-  StHeaderModule
+  BrowserModule,
+  (StHeaderModule as any).forRoot()
 ];
