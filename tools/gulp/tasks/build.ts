@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: Apache-2.0.
  */
 
-import './tasks/build';
-import './tasks/generate-theme';
+import { task } from 'gulp';
 
+task('build:logo', () => require('package-tools/logo'));
+task('build', ['build:styles']);

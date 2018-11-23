@@ -14,7 +14,7 @@ import {
    EventEmitter,
    Output,
    OnInit,
-   Optional, forwardRef, Directive, ContentChildren, QueryList
+   Optional, forwardRef, Directive, ContentChildren
 } from '@angular/core';
 
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -89,7 +89,7 @@ export class StRadioGroupComponent implements ControlValueAccessor {
 
    // tslint:disable-next-line:no-use-before-declare
    @ContentChildren(forwardRef(() => StRadioComponent))
-   _radios: QueryList<StRadioComponent> = null;
+   _radios: any = null;
 
    _value: any = null;
    _selected: StRadioComponent = null;
