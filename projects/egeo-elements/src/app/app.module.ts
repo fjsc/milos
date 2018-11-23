@@ -10,27 +10,22 @@
  */
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { StHeaderModule } from '@stratio/egeo';
+import { NgModule, Injector } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
+
 import { stElementsModules } from '@stratio/egeo-elements';
 
 import { AppComponent } from './app.component';
-
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    StHeaderModule
-  ],
-  providers: [ // Provide Service Here
-    {
-      provide: StHeaderModule,
-      useFactory: (<any>StHeaderModule).withElements()
-    }
-  ],
-  bootstrap: []
+  imports: stElementsModules,
+  providers: []
 })
-export class AppModule { }
+export class AppModule {
+
+  ngDoBootstrap(): void { }
+
+}

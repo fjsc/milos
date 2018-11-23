@@ -10,11 +10,13 @@
     SPDX-License-Identifier: Apache-2.0.
 
 -->
-<div class="content">
-   <demo-menu [options]="demoMenu" (selected)="updateDemoTitle($event)"></demo-menu>
-   <div class="main-content">
-      <h1>{{title}}</h1>
+<div class="app-limit">
+  <div class="content">
+    <demo-menu [options]="demoMenu" (selected)="updateDemoTitle($event)"></demo-menu>
+    <div class="main-content">
+        <h1>{{title}}</h1>
 
-      <router-outlet></router-outlet>
-   </div>
+        <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

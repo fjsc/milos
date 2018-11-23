@@ -8,12 +8,15 @@
  *
  * SPDX-License-Identifier: Apache-2.0.
  */
+// This import does not have any type definitions.
+const gulpRunSequence = require('run-sequence');
 
-import { BrowserModule } from '@angular/platform-browser';
-import { StHeaderModule } from './lib/st-header/st-header.module';
-
-
-export const stElementsModules: Array<any> = [
-  BrowserModule,
-  (StHeaderModule as any).forRoot()
-];
+/** Create a task that's a sequence of other tasks. */
+export function sequenceTask(...args: any[]): any {
+  return (done: any) => {
+    gulpRunSequence(
+      ...args,
+      done
+    );
+  };
+}

@@ -8,12 +8,12 @@
  *
  * SPDX-License-Identifier: Apache-2.0.
  */
+
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { StDropdownMenuModule } from '../st-dropdown-menu/st-dropdown-menu.module';
-import { StElementModule } from './../decorators/element-decorator';
 
 import { StHeaderComponent } from './st-header.component';
 import { StHeaderMenuOptionComponent } from './menu-option/menu-option';
@@ -31,7 +31,7 @@ import { StHeaderMenuComponent } from './menu/menu';
       StHeaderMenuOptionComponent,
       StHeaderMenuComponent
    ],
-   exports: [StHeaderComponent]
+   exports: [StHeaderComponent],
+   entryComponents: [StHeaderComponent]
 })
-@StElementModule([StHeaderComponent])
 export class StHeaderModule { }
