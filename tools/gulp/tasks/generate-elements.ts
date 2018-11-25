@@ -14,7 +14,7 @@ import { task, src, dest } from 'gulp';
 const fs = require('fs-extra');
 const concat = require('concat');
 
-(async function build(): void {
+(async function build(): any {
   const files = [
     './dist/air/runtime.js',
     './dist/air/polyfills.js',

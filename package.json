@@ -1,11 +1,12 @@
 {
-  "name": "egeo",
+  "name": "@stratio/egeo",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --project=egeo-web",
+    "release": "gulp publish",
     "start:elements": "ng serve --project=egeo-elements",
-    "build": "gulp build:logo && ng build --project egeo-lib && npm run build:theme",
+    "build:lib": "gulp build:logo && ng build && npm run build:theme",
     "build:theme": "gulp build",
     "build:demo": "ng build",
     "build:elements": "ng build --project egeo-elements",
@@ -44,6 +45,7 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "chalk": "2.1.0",
     "codelyzer": "~4.5.0",
     "concat": "^1.0.3",
     "cssnano": "^4.1.7",
